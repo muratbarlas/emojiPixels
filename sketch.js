@@ -7,15 +7,13 @@ function preload() {
 }
 
 
-
-
 function setup() {
 	createCanvas(1380, 700);
 	background(100);
 	capture.loadPixels();
   
-  for (var y = 0; y < capture.height; y +=5) {
-		for (var x = 0; x < capture.width; x +=6){			//var  i = y * capture.width + (capture.width-x-1);	
+  for (var y = 0; y < capture.height; y +=2) {
+		for (var x = 0; x < capture.width; x +=2){			//var  i = y * capture.width + (capture.width-x-1);	
 			var  i = y * capture.width + (capture.width-x-1);	
 			var darkness = (255 - capture.pixels[i * 4]) / 255;
 			//calcutes the position for the new shapes to appear
@@ -33,7 +31,7 @@ var y_=0
 var val = 0;
 
 function draw(){
-  textSize(7);
+  textSize(5);
   for (var i=0; i<list.length;i++){
       x_ = list[i][0];
       y_ = list[i][1];
@@ -71,7 +69,7 @@ function draw(){
 
 
 function keyPressed() {
-  if (keyCode === 83) { // if "s" is pressed
+  if (keyCode === 83) { // saves canvas if "s" is pressed
     saveForPrint("sketch.jpg", "A4", 1000);
   }
 }
